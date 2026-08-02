@@ -2,19 +2,19 @@ name: Build Executables
 
 on:
   push:
-    branches: [ v2.0 ]
+    branches: [ main, v2.0 ]
   workflow_dispatch:
 
 jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install pyinstaller
-      - run: pyinstaller --onefile --windowed main.py
+      - run: pyinstaller --onefile --windowed --name Timelapse_deflicker_v2 main.py
       - uses: actions/upload-artifact@v4
         with:
           name: windows-exe
@@ -23,12 +23,12 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install pyinstaller
-      - run: pyinstaller --onefile --windowed main.py
+      - run: pyinstaller --onefile --windowed --name Timelapse_deflicker_v2 main.py
       - uses: actions/upload-artifact@v4
         with:
           name: linux-appimage
