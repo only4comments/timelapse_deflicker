@@ -29,7 +29,7 @@ jobs:
           python-version: '3.11'
       - run: pip install pyinstaller
       - run: pyinstaller --onefile --windowed main.py
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: linux-appimage
           path: dist/Timelapse_deflicker_v2
