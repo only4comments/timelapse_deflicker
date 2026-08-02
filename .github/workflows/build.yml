@@ -18,7 +18,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: windows-exe
-          path: dist/Timelapse_deflicker_v2.exe
+          path: dist/main.exe
 
   build-linux:
     runs-on: ubuntu-latest
@@ -32,4 +32,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: linux-appimage
-          path: dist/Timelapse_deflicker_v2
+          path: dist/main
